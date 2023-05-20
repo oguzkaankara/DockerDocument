@@ -13,8 +13,9 @@ RUN dotnet publish DockerApi.csproj -c Realese -o out
 #ve bu klasörün içerisine publish edilmiþ dosyalarý atacak. 
 WORKDIR out 
 #workdirimizi out olarak belirttik.
-ENV ASPNETCORE_URLS=
+ENV ASPNETCORE_URLS="http://*:4500"
 #Bu environment localhost 5000 olarak default ayaðýya kaldýrýldýðýndan dolayý, uygulamayý sdk içerisinde çalýþtýrdýðýmýzda,
 #localhost 5000 olarak ayaðýya kaldýrýrý.
-#Sen http de çalýþ, biz portu bilmiyoruz yýldýz ile ne gelirse onu al default olarak 4500 de çalýþ. 
+#Sen http de çalýþ, biz portu bilmiyoruz yýldýz ile ne gelirse onu al default olarak 4500 de çalýþ.
+
 ENTRYPOINT ["dotnet","DockerApi.dll"]
